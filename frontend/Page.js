@@ -2,6 +2,7 @@ import Component, { html } from "janus-elements";
 import "janus-elements/ui/base-theme";
 import "./Clock.js";
 import "./UsersTable.js";
+import "./Chat.js";
 
 class Page extends Component {
   render() {
@@ -23,6 +24,7 @@ class Page extends Component {
         </p>
         <Clock />
         <UsersTable />
+        <Chat />
       </div>
     `;
   }
