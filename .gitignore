@@ -1,0 +1,7 @@
+node_modules
+frontend/client.js
+frontend/client.d.ts
+frontend/client.ts
+frontend/lib
+static
+tsconfig.tsbuildinfo

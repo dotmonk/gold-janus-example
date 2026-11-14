@@ -1,0 +1,19 @@
+{
+  "name": "gold-janus-example",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "tsx watch backend/index.ts",
+    "start": "NODE_ENV=production tsx backend/index.ts"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "gold-janus": "github:dotmonk/gold-janus#patriarch",
+    "janus-elements": "github:dotmonk/janus-elements#patriarch",
+    "tsx": "^4.21.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "typescript": "^5.9.3"
+  }
+}
