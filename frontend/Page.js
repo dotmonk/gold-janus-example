@@ -1,5 +1,6 @@
 import Component, { html } from "janus-elements";
 import "janus-elements/ui/base-theme";
+import "./Clock.js";
 
 class Page extends Component {
   render() {
@@ -19,6 +20,7 @@ class Page extends Component {
         <p style=${{ margin: "0", color: "var(--janus-text-muted)" }}>
           gold-janus API + Janus Elements (Sunset)
         </p>
+        <Clock />
       </div>
     `;
   }
