@@ -1,6 +1,7 @@
 import Component, { html } from "janus-elements";
 import "janus-elements/ui/base-theme";
 import "./Clock.js";
+import "./UsersTable.js";
 
 class Page extends Component {
   render() {
@@ -21,6 +22,7 @@ class Page extends Component {
           gold-janus API + Janus Elements (Sunset)
         </p>
         <Clock />
+        <UsersTable />
       </div>
     `;
   }
