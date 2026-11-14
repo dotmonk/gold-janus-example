@@ -4,7 +4,8 @@ Rules for AI agents in this repository. `CLAUDE.md` symlinks here; edit this
 file, never a copy.
 
 This project documents work, decisions, and validation in Markdown.
-`npm run check` is the gate: type-check plus the `node:test` suite.
+`npm run check` is the gate: januse lint and format check, type-check, and the
+`node:test` suite.
 Build, test and release gates apply once that tooling exists; do not invent it.
 Where validation is unavailable, report the gap rather than claiming it passed.
 

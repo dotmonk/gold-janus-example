@@ -2,7 +2,45 @@
 
 ## Current
 
-### Phase: Consistent user index types; dev on localhost — Implemented, waiting on gold-janus push (2026-11-14)
+_(none)_
+
+## Planned
+
+_(none)_
+
+## Done
+
+### Phase: januse lint and format in the gate — Done (2026-11-14)
+
+**Goal:** Lint and format the example with januse from janus-elements, and make both part
+of `npm run check`.
+
+**Steps:**
+- [x] `npm run lint`, `format`, `check-format` scripts; `check` runs lint and the format
+      check before `tsc` and the tests
+- [x] Format applied once (10 files, whitespace and line breaks only)
+- [x] README and AGENTS.md describe the gate
+
+**Decisions (2026-11-14):**
+- Format `backend/`, `test/` and the hand-written frontend files; lint only the
+  hand-written frontend files. januse lint has no Node globals for consumer projects, so
+  backend and test lint stays with `tsc`. No janus-elements change for this.
+- Files are listed by name in `package.json`: `frontend/` also holds the generated
+  `client.js`/`client.d.ts` and the synced `frontend/lib`, and januse has no ignore option.
+- `frontend/index.html` was left out at first: januse flattened its import map and needed
+  two passes. Fixed in janus-elements `9cabe2e`; added back after re-pinning
+  janus-elements (`9cabe2e`) and gold-janus (`fb30acc`).
+
+**Validation:** before formatting the gate stopped at `format --check: 10 file(s) would
+change`; after, `npm run check` exit 0 (lint 5 files clean, format 10 files clean, `tsc`
+clean, 10/10 tests, about 3 s). The running app, before and after formatting, in Chromium,
+Firefox and WebKit: same page text and same position and size for all 54 elements, no
+console errors.
+
+**Limitations:** new frontend files must be added to the lists in `package.json`;
+`frontend/janus-theme-sunset.css` is not formatted (januse does not format CSS).
+
+### Phase: Consistent user index types; dev on localhost — Done (2026-11-14)
 
 **Goal:** From the second review: every user-index parameter is a `number` (2), dev mode
 is reachable from this machine only (10.4, via gold-janus), and `CLAUDE.md` exists as
@@ -27,15 +65,8 @@ is reachable from this machine only (10.4, via gold-janus), and `CLAUDE.md` exis
 failures) against the string-index API. The dev-mode test ran rather than skipped: this
 machine's LAN address refused the connection.
 
-**Blocked:** against the installed gold-janus (`0010202`) the gate is 9/10; the dev-mode
-test fails because that version still listens on all interfaces in dev. Push gold-janus
-and reinstall (`npm install github:dotmonk/gold-janus#patriarch`).
-
-## Planned
-
-_(none)_
-
-## Done
+**Final validation:** after gold-janus was pushed and pinned (now `ac60309`), `npm run check`
+against the real install, no link: 10/10.
 
 ### Phase: Adopt hardened gold-janus; add a test gate — Done (2026-11-14)
 

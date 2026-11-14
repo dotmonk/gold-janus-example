@@ -28,9 +28,17 @@ overrides the port. `tsx` runs the backend, so it is a runtime dependency.
 ## Test
 
 ```sh
-npm run check   # tsc --noEmit + node:test suite (about 2 s)
-npm test        # tests only
+npm run check          # lint + format check + tsc --noEmit + node:test suite (about 3 s)
+npm test               # tests only
+npm run lint           # januse lint on the hand-written frontend files
+npm run format         # januse format on backend/, test/ and the hand-written frontend files
+npm run check-format   # the same, without writing; fails if a file would change
 ```
+
+The januse file lists are spelled out in `package.json` because `frontend/` also holds
+the generated client and the synced `frontend/lib`; add new frontend files there.
+`backend/` and `test/` are formatted but not linted (januse lint does not know Node
+globals); `tsc` checks them.
 
 `test/acceptance.test.ts` starts the app as `npm start` does, on a free port, and
 drives it over HTTP: page and client served, users CRUD with the users stream,

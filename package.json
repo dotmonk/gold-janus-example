@@ -6,12 +6,15 @@
     "dev": "tsx watch backend/index.ts",
     "start": "NODE_ENV=production tsx backend/index.ts",
     "test": "node --import tsx --test --test-timeout=60000 test/*.test.ts",
-    "check": "tsc --noEmit -p . && npm test"
+    "lint": "januse lint frontend/index.js frontend/Page.js frontend/Clock.js frontend/UsersTable.js frontend/Chat.js",
+    "format": "januse format backend test frontend/index.html frontend/index.js frontend/Page.js frontend/Clock.js frontend/UsersTable.js frontend/Chat.js",
+    "check-format": "npm run format -- --check",
+    "check": "npm run lint && npm run check-format && tsc --noEmit -p . && npm test"
   },
   "dependencies": {
     "express": "^5.2.1",
-    "gold-janus": "github:dotmonk/gold-janus#ac60309695686b3bbab154d2d8379e92b61d0f06",
-    "janus-elements": "github:dotmonk/janus-elements#776627c896ce46918ba0bb70a53f60d15c509636",
+    "gold-janus": "github:dotmonk/gold-janus#fb30acc7bdf4ad5167106dfca2501647a3bf0059",
+    "janus-elements": "github:dotmonk/janus-elements#9cabe2e1a4be07c1515fbabd58d4c9431e088016",
     "tsx": "^4.21.0"
   },
   "devDependencies": {

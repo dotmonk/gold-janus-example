@@ -1,4 +1,7 @@
-import { ApiError, nextEvent } from "gold-janus";
+import {
+  ApiError,
+  nextEvent,
+} from "gold-janus";
 
 const eventEmitter = new EventTarget();
 
@@ -8,28 +11,47 @@ interface User {
 }
 
 const users: User[] = [
-  { name: "Alice", age: 32 },
-  { name: "Bob", age: 25 },
+  {
+    name: "Alice",
+    age: 32,
+  },
+  {
+    name: "Bob",
+    age: 25,
+  },
 ];
 
 export async function* streamListUsers(): AsyncGenerator<User[]> {
   yield users;
   while (true) {
-    await nextEvent(eventEmitter, "users");
+    await nextEvent(
+      eventEmitter,
+      "users",
+    );
     yield users;
   }
 }
 
 export async function createUser(user: User): Promise<User> {
-  const newUser: User = { name: user.name, age: user.age };
+  const newUser: User = {
+    name: user.name,
+    age: user.age,
+  };
   users.push(newUser);
   eventEmitter.dispatchEvent(new CustomEvent<User[]>("users"));
   return newUser;
 }
 
 function checkUserIndex(index: number): void {
-  if (!Number.isInteger(index) || index < 0 || index >= users.length) {
-    throw new ApiError(400, "Invalid user index");
+  if (
+    !Number.isInteger(index) ||
+    index < 0 ||
+    index >= users.length
+  ) {
+    throw new ApiError(
+      400,
+      "Invalid user index",
+    );
   }
 }
 
@@ -48,7 +70,12 @@ export async function getByIndex(index: number): Promise<User> {
 
 export async function deleteUser(index: number): Promise<User> {
   checkUserIndex(index);
-  const [deleted] = users.splice(index, 1);
+  const [
+    deleted,
+  ] = users.splice(
+    index,
+    1,
+  );
   eventEmitter.dispatchEvent(new CustomEvent<User[]>("users"));
   return deleted;
 }

@@ -1,4 +1,7 @@
-import { nextEvent, type UploadedFile } from "gold-janus";
+import {
+  nextEvent,
+  type UploadedFile,
+} from "gold-janus";
 
 const eventEmitter = new EventTarget();
 let imageBase64Url = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVQoU2NkYGD4z0AEYBxVSFQAAJ8ABJqj3XoAAAAASUVORK5CYII=";
@@ -7,7 +10,10 @@ let chat = "test";
 export async function* streamChat(): AsyncGenerator<string> {
   yield chat;
   while (true) {
-    await nextEvent(eventEmitter, "chat");
+    await nextEvent(
+      eventEmitter,
+      "chat",
+    );
     yield chat;
   }
 }
@@ -15,7 +21,10 @@ export async function* streamChat(): AsyncGenerator<string> {
 export async function* streamBase64ImageUrl(): AsyncGenerator<string> {
   yield imageBase64Url;
   while (true) {
-    await nextEvent(eventEmitter, "image");
+    await nextEvent(
+      eventEmitter,
+      "image",
+    );
     yield imageBase64Url;
   }
 }

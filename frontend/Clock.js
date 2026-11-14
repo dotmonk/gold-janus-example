@@ -1,6 +1,10 @@
-import Component, { html } from "janus-elements";
+import Component, {
+  html,
+} from "janus-elements";
 import "janus-elements/ui/panel";
-import { Clock as ClockApi } from "./client.js";
+import {
+  Clock as ClockApi,
+} from "./client.js";
 
 const formatTick = (timestamp) => {
   const date = new Date(timestamp);
@@ -8,16 +12,25 @@ const formatTick = (timestamp) => {
 };
 
 class Clock extends Component {
+
   constructor() {
     super();
-    this.state = { dateTime: "N/A" };
+    this.state = {
+      dateTime: "N/A",
+    };
     this._stop = null;
   }
 
   componentDidMount() {
-    this._stop = ClockApi.ticking((tick) => {
-      this.setState({ dateTime: formatTick(tick) });
-    });
+    this._stop = ClockApi.ticking(
+      (tick) => {
+        this.setState(
+          {
+            dateTime: formatTick(tick),
+          },
+        );
+      },
+    );
   }
 
   componentWillUnmount() {
@@ -28,7 +41,8 @@ class Clock extends Component {
   render() {
     return html`
       <Panel color="accent">
-        <strong>Server time:</strong> ${this.state.dateTime}
+        <strong>Server time:</strong>
+        ${this.state.dateTime}
       </Panel>
     `;
   }
