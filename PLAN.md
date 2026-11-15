@@ -128,7 +128,7 @@ clean; 6 tests, 6 pass, about 2 s. All six criteria are tested in
 became a generic 500) until the API used `ApiError`. Manual `gild({dev:true})` smoke on a
 spare port: page served with the HMR script, `Users.getByIndex` answered, `/client.js` 200.
 
-**Final validation:** after gold-janus was pushed (`0010202`) and reinstalled, `npm run
+**Final validation:** after gold-janus was pushed and reinstalled, `npm run
 check` against the real install, no link: `tsc --noEmit` clean, 6/6 pass.
 
 **Hardening findings:**

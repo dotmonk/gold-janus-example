@@ -16,4 +16,4 @@ with the local gold-janus checkout symlinked into `node_modules` (installed copy
 aside and restored afterwards), so the result covers the local code, not what
 `npm install` produces today.
 **Cost:** a manual swap per run, and a phase that stays open until gold-janus is pushed.
-**Status:** resolved 2026-11-14: gold-janus pushed (`0010202`); suite passes against the real install.
+**Status:** resolved 2026-11-14: gold-janus pushed; suite passes against the real install.
