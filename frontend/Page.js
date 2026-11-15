@@ -20,7 +20,7 @@ class Page extends Component {
           gap: "1.25rem",
         }}
       >
-        <BaseTheme mode="system" />
+        <BaseTheme mode="dark" />
         <h1
           style=${{
             margin: "0",
@@ -32,7 +32,7 @@ class Page extends Component {
             margin: "0",
             color: "var(--janus-text-muted)",
           }}
-        >gold-janus API + Janus Elements (Sunset)</p>
+        >gold-janus API + Janus Elements (Gold)</p>
         <Clock />
         <UsersTable />
         <Chat />

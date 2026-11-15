@@ -1,0 +1,62 @@
+/* Janus Elements theme: gold-janus. Gold accent, muted teal for focus and info, semi-flat surfaces. */
+:root {
+  color-scheme: dark;
+  --janus-bg: #0b0b0a;
+  --janus-surface: #131311;
+  --janus-raised: #1a1915;
+  --janus-border: #2b2922;
+  --janus-border-strong: #6f6853;
+  --janus-text: #ede6d3;
+  --janus-text-muted: #a59c84;
+  --janus-accent: #d8ad4a;
+  --janus-success: #7cc48a;
+  --janus-warning: #e8914a;
+  --janus-error: #ef6f6a;
+  --janus-info: #6db0a6;
+  --janus-focus: #5ea69c;
+  --janus-shadow: 0 1px 2px rgba(0, 0, 0, 0.5), 0 3px 10px rgba(0, 0, 0, 0.3);
+  --janus-radius: 10px;
+  --janus-font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-janus-theme="dark"]) {
+    color-scheme: light;
+    --janus-bg: #f6f4ee;
+    --janus-surface: #fffdf8;
+    --janus-raised: #ffffff;
+    --janus-border: #e1dbcb;
+    --janus-border-strong: #847a62;
+    --janus-text: #1a1812;
+    --janus-text-muted: #5d5646;
+    --janus-accent: #7a5808;
+    --janus-success: #1d6b3c;
+    --janus-warning: #9a4a00;
+    --janus-error: #b0262b;
+    --janus-info: #2a6b64;
+    --janus-focus: #2b6d66;
+    --janus-shadow: 0 1px 2px rgba(40, 32, 16, 0.08), 0 3px 10px rgba(40, 32, 16, 0.06);
+    --janus-radius: 10px;
+    --janus-font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+}
+
+:root[data-janus-theme="light"] {
+  color-scheme: light;
+  --janus-bg: #f6f4ee;
+  --janus-surface: #fffdf8;
+  --janus-raised: #ffffff;
+  --janus-border: #e1dbcb;
+  --janus-border-strong: #847a62;
+  --janus-text: #1a1812;
+  --janus-text-muted: #5d5646;
+  --janus-accent: #7a5808;
+  --janus-success: #1d6b3c;
+  --janus-warning: #9a4a00;
+  --janus-error: #b0262b;
+  --janus-info: #2a6b64;
+  --janus-focus: #2b6d66;
+  --janus-shadow: 0 1px 2px rgba(40, 32, 16, 0.08), 0 3px 10px rgba(40, 32, 16, 0.06);
+  --janus-radius: 10px;
+  --janus-font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}

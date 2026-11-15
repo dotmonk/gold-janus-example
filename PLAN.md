@@ -10,6 +10,30 @@ _(none)_
 
 ## Done
 
+### Phase: gold-janus theme — Done (2026-11-15)
+
+**Goal:** Replace the Sunset theme with `frontend/gold-janus-theme.css`: gold on black in
+dark mode, gold paired with a muted teal, semi-flat surfaces, radius unchanged (10px).
+
+**Decisions:**
+- Janus has no secondary-accent token, so the teal is `--janus-focus` and `--janus-info`
+  (focus rings, links, info tones); gold is `--janus-accent`.
+- Semi-flat: surfaces sit just above the background (contrast 1.06 dark, 1.08 light) and
+  are outlined by borders; `--janus-shadow`, used only by popups, is short and soft.
+- Light mode uses a dark gold (`#7a5808`) and dark teal so text in those colours stays
+  readable on near-white.
+- The app is always dark: `Page.js` sets `<BaseTheme mode="dark" />`. The light tokens
+  stay in the theme file for apps that use `mode="system"` or `"light"`.
+
+**Validation:** every text colour reaches at least 5.4:1 on surface, raised and
+background in both modes (WCAG AA is 4.5), and `--janus-border-strong` (field borders)
+at least 3.2:1. The running app in Chromium, dark and light: the tokens apply, no
+console errors, checked by screenshot. `npm run check` exit 0 (lint 5 files, format 11
+files clean, `tsc` clean, 10/10 tests).
+
+**Limitations:** checked in Chromium only. Gold is used where Janus uses the accent
+(buttons, tints, links in BaseTheme); headings and body text stay warm off-white.
+
 ### Phase: januse lint and format in the gate — Done (2026-11-14)
 
 **Goal:** Lint and format the example with januse from janus-elements, and make both part
@@ -38,7 +62,7 @@ Firefox and WebKit: same page text and same position and size for all 54 element
 console errors.
 
 **Limitations:** new frontend files must be added to the lists in `package.json`;
-`frontend/janus-theme-sunset.css` is not formatted (januse does not format CSS).
+`frontend/gold-janus-theme.css` is not formatted (januse does not format CSS).
 
 ### Phase: Consistent user index types; dev on localhost — Done (2026-11-14)
 
