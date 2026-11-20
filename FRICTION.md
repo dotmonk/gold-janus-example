@@ -5,6 +5,8 @@
 Interpolating `null` into `html\`...\`` leaves a null child. Nested components
 that re-render those children (e.g. `Panel` via `${this.childElements}`) throw
 (`typeof null === "object"` then `.tagName`). Prefer `""` or omit the branch.
+**Status:** resolved upstream in janus-elements `09fb3f3` (`null` / `false` / `true`
+in template content render nothing, like `undefined`).
 
 ## Validating against an unpushed sibling package (2026-11-14)
 

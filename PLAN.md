@@ -10,6 +10,34 @@ _(none)_
 
 ## Done
 
+### Phase: Pin latest gold-janus / janus-elements; simplify lint and format — Done (2026-11-20)
+
+**Goal:** Depend on the latest `gold-janus` and `janus-elements`, and replace the
+hand-listed lint/format file lists with directory paths plus `--exclude` for
+generated and synced frontend files.
+
+**Steps:**
+- [x] Pin `gold-janus` to `f145bc0` and `janus-elements` to `09fb3f3`; reinstall
+- [x] Simplify `lint` / `format` scripts with `--exclude` for `frontend/lib` and
+      `frontend/client.*`
+- [x] Update README; mark the null-slot FRICTION note resolved upstream
+- [x] `npm run check`
+
+**Done when:**
+1. `package.json` pins those commits — met
+2. Lint/format scripts use directories + `--exclude`, not per-file lists — met
+3. `npm run check` exits 0 — met
+
+**Decisions:** User requested the upgrade and the script simplification; no further
+stack choice. Keep lint on `frontend/` only (januse still has no Node globals for
+consumer `backend/` / `test/`); format stays on `backend`, `test`, and `frontend`.
+
+**Validation:** baseline `npm run check` exit 0 before the change. After pin + script
+change: lint 5 files clean, format 11 files clean, `tsc` clean, 10/10 tests, about 3 s.
+
+**Limitations:** CSS still unformatted (`frontend/gold-janus-theme.css`); januse does
+not format CSS.
+
 ### Phase: gold-janus theme — Done (2026-11-15)
 
 **Goal:** Replace the Sunset theme with `frontend/gold-janus-theme.css`: gold on black in
